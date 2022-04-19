@@ -10,7 +10,7 @@
 1. Download & install Miniconda or Anaconda from https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
 
-2. Open new Terminal, create new conda environment named skku and activate it with following commands:
+2. Open new Terminal, create new conda environment named **aic22track1** and activate it with following commands:
 ```shell
 conda env create -f setup/aic22track1_py3.9_torch1.10.1.yml 
 
@@ -57,7 +57,7 @@ AIC22_Track_1_MTMC
 
 ##### a. Weight 
 
-Download weight from [Release](https://github.com) then put it into **AIC22_Track_1_MTMC/models_zoo**.
+Download weight from [Release](https://o365skku-my.sharepoint.com/:u:/g/personal/duongtran_o365_skku_edu/EWSZTI_H2-VLshgNwa2RlmYBQW4DyCuk5WvV17cd1p9Zjw?e=LFViMC) then put it into **AIC22_Track_1_MTMC/models_zoo**.
 
 The folder structure should be as following:
 ```
