@@ -55,7 +55,7 @@ AIC22_Track_1_MTMC
 
 #### III. Reference
 
-##### a. Weight 
+##### a. Download weight 
 
 Download weight from [Release](https://o365skku-my.sharepoint.com/:u:/g/personal/duongtran_o365_skku_edu/EWSZTI_H2-VLshgNwa2RlmYBQW4DyCuk5WvV17cd1p9Zjw?e=LFViMC) then put it into **AIC22_Track_1_MTMC/models_zoo**.
 
@@ -68,7 +68,7 @@ AIC22_Track_1_MTMC
 │       └── detector
 ```
 
-##### b. Change running file
+##### b. Run inference
 
 And the running script to get the result
 
