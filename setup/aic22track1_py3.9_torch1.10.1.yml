@@ -1,0 +1,71 @@
+
+name: aic22track1
+
+channels:
+  - pytorch
+  - defaults
+  - conda-forge
+
+dependencies:
+  # GENERAL
+  - cudatoolkit=11.3
+  - cython
+  - git
+  - markdown
+  - matplotlib
+  - mpi4py
+  - munch
+  - mypy
+  - ninja
+  - numpy
+  - pandas
+  - pillow
+  - protobuf
+  - pydot
+  - python=3.9
+  - pyvips
+  - scikit-learn
+  - scipy
+  - seaborn
+  - tensorboard
+  - tqdm
+  - pytorch=1.10.2=py3.9_cuda11.3_cudnn8.2.0_0
+  - torchaudio=0.10.2=py39_cu113
+  - torchvision=0.11.3=py39_cu113
+  - pip
+  - pip:
+        - efficientnet-pytorch
+        - filterpy
+        - koila
+        - labelme
+        - md-mermaid
+        - multipledispatch
+        - opencv-python==4.4.0.46                 ; sys_platform=="win32" or sys_platform=="linux"
+        - opencv-contrib-python==4.4.0.46         ; sys_platform=="win32" or sys_platform=="linux"
+        - opencv-python-headless==4.4.0.46        ; sys_platform=="darwin"
+        - opencv-contrib-python-headless==4.4.0.46; sys_platform=="darwin"
+        - ordered-enum
+        - piq
+        - pycocotools
+        - PyQt6
+        - pytorch-lightning==1.5.8
+        - pretrainedmodels
+        - ptflops
+        - rawpy
+        - rich
+        - sortedcontainers
+        - setGPU
+        - timm
+        - torchmetrics
+        - torchmetrics[all]
+        - torchsummary
+        - validators
+        - xmltodict
+        - cython_bbox
+        - lap
+        - yacs
+        - shapely
+        - thop
+        - pyyaml
+        - torchmetrics==0.7.3
+        - torch-complex==0.4.3

@@ -1,0 +1,44 @@
+camera:
+  - "c041"
+  - "c042"
+  - "c043"
+  - "c044"
+  - "c045"
+  - "c046"
+
+reidentifier:
+  - "1"
+  - "2"
+  - "3"
+
+data_writer:
+  dst_crop: "dets_crop"
+  # Store the crop detection of each result of each images
+  dst_crop_pkl: "dets_crop_pkl"
+  # Store the crop detection of each result of each images
+  dst_debug: "dets_debug"
+  # Store the full detection of each result of each images
+  dst_label: "dets_label"
+  # Store the full label of each result of each images
+  dst_dets_feat: "dets_feat"
+  # Store the feature of each crop detection
+  dst_dets_feat_merge: "dets_feat_merge"
+  # Store the merge all feature of each crop detection
+  dst_mots: "mots"
+  # Store the result of tracking
+  dst_mots_debug: "mots_debug"
+  # Store the result of tracking
+  dst_mots_feat: "mots_feat"
+  # Store the result of re-identifier
+
+matching:
+  name: "re_identifier_matching"
+
+  dataset: "aic22_mtmc"
+
+  zone: "zone"
+
+  scene_name: "S06"
+  # Scene where the camera belong to
+  timestamp_dir: "timestamp"
+  # Directory story timestamp

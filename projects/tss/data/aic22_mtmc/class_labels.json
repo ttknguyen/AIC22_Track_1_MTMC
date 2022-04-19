@@ -1,0 +1,7 @@
+{
+  "class_labels" : [
+    { "name": "car"       , "id": 1, "train_id": 2, "category": "vehicle", "catId": 1, "color": [0  , 0 , 142] },
+    { "name": "bus"       , "id": 2, "train_id": 5, "category": "vehicle", "catId": 1, "color": [0  , 0 , 70 ] },
+    { "name": "truck"     , "id": 3, "train_id": 7, "category": "vehicle", "catId": 1, "color": [0  , 0 , 100] }
+  ]
+}

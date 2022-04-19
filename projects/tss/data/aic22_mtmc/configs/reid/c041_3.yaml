@@ -1,0 +1,170 @@
+---
+dataset: &dataset "aic22_mtmc"
+# Dataset name. It is also the name of the directory inside `data_dir`.
+subset: "dataset_a"
+# Subset name. One of: [`dataset_a`, `dataset_b`].
+name: &camera_name "c041"
+# Camera name is also used as the unique ID (NO FILE EXTENSION).
+id_: *camera_name
+# Camera's unique ID.
+
+data:
+  file: &data "vdo.avi"
+  # Video file or image folder. By default, assume all video are put inside
+  # `aic21_vehicle_counting/<subset>/`.
+  stream: null
+  # If we run directly with the input stream, `stream` must be of some value.
+  # By default `null` means run with video file defined in `path`.
+  shape: &shape [960, 1280, 3]
+  # Input size as [H, W, C].
+  frame_rate: &frame_rate 10
+  # Frame rate of the video.
+  batch_size: &batch_size 1
+  # Number of samples in one forward & backward pass.
+
+data_loader:
+  data: "c041/vdo.avi"
+  # Data source. Can be a path to an image file, a directory, a video, or
+  # a stream. It can also be a pathname pattern to images.
+  ignore_region: "c041/roi.jpg"
+  # Region we don't need to detect or consider
+  batch_size: *batch_size
+  # Number of samples in one forward & backward pass.
+
+class_labels:
+  file: "class_labels.json"
+  # Config file containing class_labels.
+
+#rois:
+#  file: "cam_1.json"
+#  # Roi file.
+#
+#mois:
+#  file: "cam_1.json"
+#  # Moi file.
+#  distance_function: "hausdorff"
+#  # Distance function.
+#  distance_threshold: 300
+#  # Maximum distance for counting with track.
+#  angle_threshold: 45
+#  # Maximum angle for counting with track.
+
+detector:
+  name: "yolov5_mtmc"
+  # Name of the detector model.
+  model_cfg:
+  # Detector model config.
+    cfg: "yolov5x6.yaml"
+    # YOLOv5 variances.
+    nc: 80
+    # Number of classes.
+  weights: "pretrained/detector/yolov5x.pt"
+  # Pretrained weights file.
+  shape: [1280, 1280, 3]
+  # Input size as [C, H, W].
+  min_confidence: 0.1
+  # Detection confidence threshold. Disregard all detections that have a
+  # confidence lower than this value.
+  nms_max_overlap: 0.4
+  # Maximum detection overlap (non-maxima suppression threshold).
+  device: &device "1"
+  # CUDDevice, i.e. 0 or 0,1,2,3 or cpu
+  batch_size: 1
+  # Number of samples in one forward & backward pass.
+  folder_out: "yolov5x"
+  # The output folder
+
+reidentifier:
+  name: "re_identifier_feature"
+  # Name of the re-identifier model.
+  reid_backbone: "resnext101_ibn_a"
+  # Pretrained backbone definition.
+  reid_model: "pretrained/reid/3.pth"
+  # Pretrained weights file.
+  reid_size_test: [384, 384]
+  # Input size as [H, W].
+  score_threshold: 0.5
+
+  use_ff: True
+  # Use finetuned parameters.
+  use_rerank: True
+  # Use finetuned parameters.
+  batch_size: 32
+  # Number of samples in one forward & backward pass.
+  device: *device
+  # CUDDevice, i.e. 0 or 0,1,2,3 or cpu
+  folder_out: "3"
+  # The output folder
+
+tracker:
+  name: "fairmot_track_mtmc"
+  # Name of the tracker.
+  motion_model:
+    "name": "kf_bbox_motion"
+  # Motion model of the tracked object.
+  max_age: 10
+  # Max number of frame keep the object before deleting.
+  min_hit: 3
+  # Number of frame which has matching bounding box of the detected object
+  # before the object is considered becoming the track.
+  iou_threshold: 0.2
+  # Intersection over Union between two track with their bounding box.
+  batch_size: 1
+  # Number of samples in one forward & backward pass.
+  folder_out: "fairmot"
+  # The output folder
+  min_confidence: 0.1
+  # Detection confidence threshold. Disregard all detections that have
+  # a confidence lower than this value.
+  frame_rate: *frame_rate
+  # Frame rate of the video.
+  nms_max_overlap: 0.99
+  # Maximum detection overlap (non-maxima suppression threshold).
+  min_box_area: 750.0
+
+matching:
+  name: "re_identifier_matching"
+
+  dataset: *dataset
+
+  zone: "zone"
+
+  scene_name: "S06"
+  # Scene where the camera belong to
+  timestamp_dir: "timestamp"
+  # Directory story timestamp
+
+data_writer:
+  images: "images"
+  # Extract images
+  dst: null
+  # Output video file or a directory.
+  shape: *shape
+  # Output size [H, W, C].
+  frame_rate: *frame_rate
+  # Frame rate of the video.
+  fourcc: "mp4v"
+  # Video codec. One of: ["mp4v", "xvid", "mjpg", "wmv1"].
+  dst_crop: "dets_crop"
+  # Store the crop detection of each result of each images
+  dst_crop_pkl: "dets_crop_pkl"
+  # Store the crop detection of each result of each images
+  dst_debug: "dets_debug"
+  # Store the full detection of each result of each images
+  dst_label: "dets_label"
+  # Store the full label of each result of each images
+  dst_dets_feat: "dets_feat"
+  # Store the feature of each crop detection
+  dst_dets_feat_merge: "dets_feat_merge"
+  # Store the merge all feature of each crop detection
+  dst_mots: "mots"
+  # Store the result of tracking
+  dst_mots_debug: "mots_debug"
+  # Store the result of tracking
+  dst_mots_feat: "mots_feat"
+  # Store the result of re-identifier
+
+result_writer:
+  dst: *camera_name
+  camera_name: *camera_name
+...
