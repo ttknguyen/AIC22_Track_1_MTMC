@@ -57,7 +57,9 @@ AIC22_Track_1_MTMC
 
 ##### a. Weight 
 
-Download weight from [Release](https://github.com) then put it into *AIC22_Track_1_MTMC/models_zoo*. The folder structure should be as following:
+Download weight from [Release](https://github.com) then put it into **AIC22_Track_1_MTMC/models_zoo**.
+
+The folder structure should be as following:
 ```
 AIC22_Track_1_MTMC
 ├── models_zoo
