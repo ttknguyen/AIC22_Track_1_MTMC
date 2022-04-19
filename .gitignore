@@ -155,9 +155,9 @@ exp/
 /models_zoo/
 /projects/tss/data/aic21_mtmc/outputs/
 /projects/tss/data/aic21_vehicle_counting/outputs/
-/projects/tss/data/aic22_mtmc/outputs/
+
 /projects/tss/docs/
 .exp/
 .cache/
 /projects/tss/src/trackers/fairmot/post_processing/cache/
-/projects/tss/data/aic22_mtmc/dataset_a/
+
