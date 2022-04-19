@@ -77,7 +77,7 @@ bash projects/tss/runs/run_track_mtmc.sh
 ```
 
 ##### c. Get the result
-After more than 1.5 hours, we get the result:
+After more than 2-3 hours, we get the result:
 ```
 AIC22_Track_1_MTMC/projects/tss/data/aic22_mtmc/outputs/mtmc_result.txt
 ```
