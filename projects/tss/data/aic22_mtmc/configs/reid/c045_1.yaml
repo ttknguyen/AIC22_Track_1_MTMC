@@ -71,7 +71,7 @@ detector:
   # CUDDevice, i.e. 0 or 0,1,2,3 or cpu
   batch_size: 1
   # Number of samples in one forward & backward pass.
-  folder_out: "scaledyolov4"
+  folder_out: "yolov5x"
   # The output folder
 
 reidentifier:

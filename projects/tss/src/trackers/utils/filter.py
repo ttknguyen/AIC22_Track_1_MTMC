@@ -564,7 +564,7 @@ def create_unique_color_uchar(tag, hue_step=0.41):
 
 if __name__ == "__main__":
 	folder_feature = "/media/sugarubuntu/DataSKKU3/3_Workspace/traffic_surveillance_system/MLKit/projects/tss/data/aic22_mtmc/outputs/dets_feat_merge"
-	# folder_feature = "/media/sugarubuntu/DataSKKU3/3_Workspace/traffic_surveillance_system/MLKit/projects/tss/data/aic22_mtmc/outputs/dets_crop_pkl/scaledyolov4p7"
+	# folder_feature = "/media/sugarubuntu/DataSKKU3/3_Workspace/traffic_surveillance_system/MLKit/projects/tss/data/aic22_mtmc/outputs/dets_crop_pkl/yolov5xp7"
 	total_crop = 0
 	for cam_id in [41, 42, 43, 44, 45, 46]:
 		pkl_path = f"{folder_feature}/c0{cam_id}/c0{cam_id}_dets_feat.pkl"
