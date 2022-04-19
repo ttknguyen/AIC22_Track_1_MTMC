@@ -19,7 +19,7 @@ do
         --name   ${seq}  \
 		--output ${ROOT_DIR}/projects/tss/data/aic22_mtmc/outputs/  \
 		--source ${ROOT_DIR}/projects/tss/data/aic22_mtmc/outputs/images/${seq}  \
-		--weights ${ROOT_DIR}/models_zoo/pretrained/scaledyolov4/yolov4-p7.pt  \
+		--weights ${ROOT_DIR}/models_zoo/pretrained/detector/yolov5x.pt  \
 		--roi_region ${ROOT_DIR}/projects/tss/data/aic22_mtmc/dataset_a/${seq}/roi.jpg \
 		--conf ${conf_thres}  \
 		--agnostic  \
@@ -38,7 +38,7 @@ do
         --name   ${seq}  \
 		--output ${ROOT_DIR}/projects/tss/data/aic22_mtmc/outputs/  \
 		--source ${ROOT_DIR}/projects/tss/data/aic22_mtmc/outputs/images/${seq}  \
-		--weights ${ROOT_DIR}/models_zoo/pretrained/scaledyolov4/yolov4-p7.pt  \
+		--weights ${ROOT_DIR}/models_zoo/pretrained/detector/yolov5x.pt  \
 		--roi_region ${ROOT_DIR}/projects/tss/data/aic22_mtmc/dataset_a/${seq}/roi.jpg \
 		--conf ${conf_thres}  \
 		--agnostic  \
